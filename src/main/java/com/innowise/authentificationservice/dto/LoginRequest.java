@@ -1,7 +1,15 @@
 package com.innowise.authentificationservice.dto;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+
 public class LoginRequest {
+
     private String email;
+    @NotBlank(message = "Email is required")
+    @Email(message = "Email should be valid")
+
+    @NotBlank(message = "Password is required")
     private String password;
 
     public LoginRequest() {}

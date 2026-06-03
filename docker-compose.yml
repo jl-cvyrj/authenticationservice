@@ -22,14 +22,16 @@ services:
       AUTH_DB_URL: jdbc:postgresql://postgres-auth:5432/auth_db
       AUTH_DB_USERNAME: postgres
       AUTH_DB_PASSWORD: postgres
-      USER_SERVICE_URL: http://192.168.100.17:8080
-      JWT_SECRET: mySecretKeyForJWTTokenGeneration2025!VeryLongAndSecure
-      JWT_ACCESS_EXPIRATION: 900000
-      JWT_REFRESH_EXPIRATION: 604800000
+      USER_SERVICE_URL: ${USER_SERVICE_URL}
+      JWT_ACCESS_EXPIRATION: ${JWT_ACCESS_EXPIRATION}
+      JWT_REFRESH_EXPIRATION: ${JWT_REFRESH_EXPIRATION}
+      JWT_SECRET: ${JWT_SECRET}
     ports:
       - "8082:8082"
     networks:
       - authenticationservice-network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
 volumes:
   postgres_auth_data:
