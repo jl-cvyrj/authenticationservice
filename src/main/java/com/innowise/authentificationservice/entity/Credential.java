@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.Instant;
 
@@ -26,6 +27,7 @@ public class Credential {
     @Column(name = "user_id", nullable = false)
     private Long userId;
 
+    @CreationTimestamp
     @Column(name = "created_at")
     private Instant createdAt;
 
