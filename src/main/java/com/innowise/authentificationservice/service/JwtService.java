@@ -8,6 +8,8 @@ public interface JwtService {
 
     String generateRefreshToken(Long userId, String email);
 
+    public String generateServiceToken();
+
     void validateAccessToken(String token) throws InvalidTokenException;
 
     void validateRefreshToken(String token) throws InvalidTokenException;

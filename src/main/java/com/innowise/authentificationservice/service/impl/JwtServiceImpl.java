@@ -50,6 +50,13 @@ public class JwtServiceImpl implements JwtService {
         return generateToken(claims, email, refreshExpiration);
     }
 
+    public String generateServiceToken() {
+        Map<String, Object> claims = new HashMap<>();
+        claims.put("role", "SERVICE");
+        claims.put("type", "access");
+        return generateToken(claims, "auth-service", accessExpiration);
+    }
+
     private String generateToken(Map<String, Object> claims, String subject, long expiration) {
         return Jwts.builder()
                 .setClaims(claims)
